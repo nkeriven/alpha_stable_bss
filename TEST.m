@@ -7,12 +7,15 @@
 %
 % The data used in the paper are adapted from the QUASI dataset and TIMIT
 % dataset.
-% The TIMIT dataset is provided
+% Audio files created from a subset of TIMIT are provided in long_TIMIT/
 % the QUASI dataset can be downloaded at http://www.tsi.telecom-paristech.fr/aao/en/2012/03/12/quasi/
 
 clear all
 close all
 rng(0)
+
+%%%% Audio signal processing tools
+addpath('ASP_tools/')
 
 %%%% Datasets
 % QUASI DATASET
@@ -43,12 +46,12 @@ QUASI_INSTRUS = { % ordered list of instruments for each song
     };
 
 % TIMIT DATASET
-TIMIT_PATH = 'C:\Users\nkeriven\Documents\local_data\long_TIMIT\';
+TIMIT_PATH = 'long_TIMIT/';
 timit_perm=randperm(10); % TIMIT tests use k tracks randomly selected
 
 
 %%%% Parameters of the experiment
-data_to_use = 'quasi'; % 'quasi' or 'timit'
+data_to_use = 'timit'; % 'quasi' or 'timit'
 song_id = 1; % for QUASI: choose song
 start_time = 0; % (s) Start time when loading sounds
 end_time = 30; % (s) End time when loading sounds 
